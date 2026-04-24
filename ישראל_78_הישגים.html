@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇮🇱 ישראל — הישגים לגאווה</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --surface2: #1a1a24;
+  --border: rgba(255,255,255,0.09);
+  --text: #f0f0f5;
+  --muted: rgba(240,240,245,0.52);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Heebo', -apple-system, 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+  /* prevent iOS Safari text size adjustment */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59,130,246,0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 40% at 85% 85%, rgba(16,185,129,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-flag {
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  display: block;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 11vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.2rem;
+  /* gradient text — works on all modern mobile browsers */
+  background: linear-gradient(140deg, #ffffff 0%, #7dd3fc 45%, #6ee7b7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 300px;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 3rem;
+}
+
+.hero-badge strong { color: var(--text); font-weight: 700; }
+
+.scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  animation: bob 2.2s ease-in-out infinite;
+}
+.scroll-chevron {
+  width: 18px; height: 18px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+}
+@keyframes bob {
+  0%,100% { opacity: 0.45; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(7px); }
+}
+
+/* ── NAV ── */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,15,0.88);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  white-space: nowrap;
+  /* prevent iOS momentum scroll bleeding */
+  overscroll-behavior-x: contain;
+}
+.nav-bar::-webkit-scrollbar { display: none; }
+
+.nav-bar a {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  margin-left: 4px;
+  /* large tap targets for mobile */
+  min-height: 32px;
+  line-height: 22px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-bar a:active {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+}
+
+/* ── CONTENT ── */
+.content {
+  padding: 1rem 0.85rem 5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── CATEGORY ── */
+.category-section { margin-bottom: 2rem; }
+
+.cat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0 10px;
+  margin-bottom: 8px;
+  border-bottom: 2px solid #3b82f6;
+  position: sticky;
+  top: 48px;
+  background: var(--bg);
+  z-index: 10;
+}
+.cat-emoji { font-size: 1.15rem; line-height: 1; }
+.cat-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 13px 11px;
+  margin-bottom: 7px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  /* smooth tap feel */
+  transition: background 0.15s, border-color 0.2s;
+  /* ensure text never overflows horizontally */
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* colored left bar — using right because RTL */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--cc, #3b82f6);
+  opacity: 0.75;
+  border-radius: 0 14px 14px 0;
+}
+
+.card:active { background: var(--surface2); }
+
+.card.open {
+  background: var(--surface2);
+  border-color: var(--open-border, rgba(59,130,246,0.35));
+}
+
+.card-num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 5px;
+  opacity: 0.85;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.card-expand {
+  max-height: 0;
+  overflow: hidden;
+  /* use max-height transition — no JS height calc needed */
+  transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card.open .card-expand { max-height: 800px; }
+
+.card-detail {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted);
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 10px;
+}
+
+.card-tap {
+  font-size: 0.73rem;
+  margin-top: 7px;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+.card.open .card-tap { display: none; }
+
+/* ── PROGRESS BAR ── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+  z-index: 999;
+  pointer-events: none;
+}
+#progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  width: 0%;
+  transition: width 0.12s linear;
+}
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+.footer-flag { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+
+/* ── FADE-IN ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.fade-in.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"><div id="progress-fill"></div></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <span class="hero-flag">🇮🇱</span>
+  <h1 class="hero-title">ישראל<br>הישגים<br>לגאווה</h1>
+  <p class="hero-sub">מדינה קטנה. הישגים ענקיים.<br>עובדות שישנו את העולם.</p>
+  <div class="hero-badge"><strong>78</strong>&nbsp;הישגים מאומתים</div>
+  <div class="scroll-hint">
+    <span>גלול למטה</span>
+    <div class="scroll-chevron"></div>
+  </div>
+</section>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <a href="#cat-0">💻 טכנולוגיה וחדשנות</a>
+  <a href="#cat-1">🔬 מדע ורפואה</a>
+  <a href="#cat-2">🌱 חקלאות, מים וסביבה</a>
+  <a href="#cat-3">🛡️ ביטחון ותעשייה ביטחונית</a>
+  <a href="#cat-4">🎓 חינוך, מחקר ואקדמיה</a>
+  <a href="#cat-5">📈 כלכלה ועסקים</a>
+  <a href="#cat-6">🎬 תקשורת, מדיה ויצירה</a>
+  <a href="#cat-7">❤️ בריאות ואורח חיים</a>
+  <a href="#cat-8">🤝 קהילה, חברה ורווחה</a>
+  <a href="#cat-9">☀️ אנרגיה וסביבה</a>
+  <a href="#cat-10">🏅 ספורט, תרבות ואמנות</a>
+  <a href="#cat-11">⭐ הישגים ייחודיים</a>
+  
+</nav>
+
+<!-- CONTENT -->
+<main class="content">
+<div class="category-section" id="cat-0">
+  <div class="cat-header" style="border-bottom-color:#0ea5e9">
+    <span class="cat-emoji">💻</span>
+    <span class="cat-name" style="color:#0ea5e9">טכנולוגיה וחדשנות</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(14,165,233,0.35)" style="--cc:#0ea5e9">
+    <div class="card-num" style="color:#0ea5e9">01</div>
+    <div class="card-body">
+      <p class="card-text">גרמניה גדולה מישראל פי 9, צרפת פי 7 — אך לישראל יותר סטארטאפים לנפש משתיהן גם יחד</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל מחזיקה בצפיפות הסטארטאפים הגבוהה בעולם — כ-9,000 חברות שגייסו מימון, יותר מכל מדינה אחרת ביחס לאוכלוסייה. לפי StartupBlink, ישראל מדורגת מקום 1-2 בעולם במדד זה. מדינות ענק כמו גרמניה, צרפת ובריטניה — שיש להן עשרות מיליוני אנשים — לא מצליחות להתקרב לצפיפות הישראלית. הסוד: יחידות טכנולוגיות בצבא, אוניברסיטאות מחקריות מצוינות, ותרבות שמאמינה ש"אם לא ניסית — לא ידעת".</p>
+      </div>
+      <div class="card-tap" style="color:#0ea5e9">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(14,165,233,0.35)" style="--cc:#0ea5e9">
+    <div class="card-num" style="color:#0ea5e9">02</div>
+    <div class="card-body">
+      <p class="card-text">בשנת 2021: ישראלים קיבלו 28,000 דולר לנפש מהון סיכון — האמריקאי הממוצע קיבל 1,000 דולר</p>
+      <div class="card-expand">
+        <p class="card-detail">ב-2021 גייסו חברות ישראליות למעלה מ-25 מיליארד דולר — שהם כ-28,000 דולר לתושב. פי 28 מהממוצע האמריקאי באותה שנה. Sequoia, Benchmark, SoftBank ושאר הגדולים בעולם מחזיקים כולם נציגות בישראל. ב-2024 גויסו עוד 12.2 מיליארד דולר — עלייה של 31% על פני 2023, גם בזמן מלחמה. כשמשקיע מניו יורק בא לישראל, הוא לא בא לעשות טובה — הוא בא לעשות כסף.</p>
+      </div>
+      <div class="card-tap" style="color:#0ea5e9">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(14,165,233,0.35)" style="--cc:#0ea5e9">
+    <div class="card-num" style="color:#0ea5e9">03</div>
+    <div class="card-body">
+      <p class="card-text">גוגל, מיקרוסופט, אינטל, אפל ומטא פתחו מרכזי פיתוח בישראל — יותר מ-350 חברות רב-לאומיות, ריכוז שאין לו אח בעולם ביחס לגודל המדינה</p>
+      <div class="card-expand">
+        <p class="card-detail">חברות הטכנולוגיה הגדולות בעולם לא הגיעו לישראל מחמלה — הן הגיעו כי הטאלנט כאן הוא בין הטובים שיש. ביחס לגודל האוכלוסייה, אין בעולם ריכוז כזה של מרכזי פיתוח גלובליים. ה-Core i7 של אינטל פותח בחיפה. חלקים מ-Bing AI פותחו בתל אביב. Google Maps שולב עם טכנולוגיה מישראל. כשהעולם רוצה את הטוב ביותר — הוא מגיע לישראל.</p>
+      </div>
+      <div class="card-tap" style="color:#0ea5e9">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(14,165,233,0.35)" style="--cc:#0ea5e9">
+    <div class="card-num" style="color:#0ea5e9">04</div>
+    <div class="card-body">
+      <p class="card-text">מדינה בגודל ניו ג'רזי — עם יותר חברות בנאסד"ק מגרמניה, צרפת וספרד גם יחד</p>
+      <div class="card-expand">
+        <p class="card-detail">נכון ל-2025, כ-135 חברות ישראליות נסחרות בנאסד"ק — מה שמציב את ישראל במקום הרביעי בעולם, אחרי ארה"ב, קנדה וסין. גרמניה — כלכלה פי 12 מישראל — מחזיקה פחות חברות בנאסד"ק. Check Point, CyberArk, Monday.com, Wix, Mobileye ואחרות מייצגות שווי של מאות מיליארדי דולרים שנוצרו בארץ קטנה ועמוסת אתגרים.</p>
+      </div>
+      <div class="card-tap" style="color:#0ea5e9">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(14,165,233,0.35)" style="--cc:#0ea5e9">
+    <div class="card-num" style="color:#0ea5e9">05</div>
+    <div class="card-body">
+      <p class="card-text">שליש מיוניקורני הסייבר בעולם הם ישראלים — מדינה שמהווה 0.1% מאוכלוסיית העולם מייצרת 20% מהשקעות הסייבר הגלובליות</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל הפכה לסייבר-מעצמה ללא תקדים. Check Point המציאה את ה-Firewall המסחרי. CyberArk מגנה על הסיסמאות של Fortune 500. Palo Alto Networks, אחת מחברות הסייבר הגדולות בעולם, נוסדה על ידי ישראלים. הבסיס: יחידה 8200 של צה"ל, שבוגריה שינו את תפיסת האבטחה הדיגיטלית. כל בנק, כל בית חולים וכל ממשלה שמגנים על עצמם בדיגיטל — סביר שיש להם טכנולוגיה ישראלית.</p>
+      </div>
+      <div class="card-tap" style="color:#0ea5e9">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(14,165,233,0.35)" style="--cc:#0ea5e9">
+    <div class="card-num" style="color:#0ea5e9">06</div>
+    <div class="card-body">
+      <p class="card-text">10% מכוח העבודה בהיי-טק — אבל 50% מהייצוא. ישראל הוכיחה שגודל לא קובע, ערך קובע</p>
+      <div class="card-expand">
+        <p class="card-detail">ענף ההיי-טק הישראלי מעסיק רק כ-10% מכוח העבודה, אך מייצר 18% מהתמ"ג ומהווה כמחצית מכלל הייצוא. ביחס לגודל המשק, אין בעולם מדינה שהיי-טק שלה ממנף את הכלכלה באופן כה דרמטי. ישראל מוכרת תוכנות, מערכות אבטחה, AI ורפואה דיגיטלית לכל קצוות תבל — בלי שדות נפט, בלי יבשת, רק עם מוח.</p>
+      </div>
+      <div class="card-tap" style="color:#0ea5e9">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(14,165,233,0.35)" style="--cc:#0ea5e9">
+    <div class="card-num" style="color:#0ea5e9">07</div>
+    <div class="card-body">
+      <p class="card-text">Mobileye: חברה ירושלמית שמגינה על נוסעים ב-100 מיליון רכבים ברחבי העולם — ונמכרה לאינטל ב-15.3 מיליארד דולר</p>
+      <div class="card-expand">
+        <p class="card-detail">פרופ' אמנון שעשוע הקים את Mobileye בגרג' בירושלים. כיום מערכותיה מורכבות ביותר מ-100 מיליון כלי רכב ב-50 מדינות ומונעות תאונות בזמן אמת. כשאינטל רכשה את החברה ב-2017 ב-15.3 מיליארד דולר — זו הייתה עסקת הטכנולוגיה הגדולה בתולדות ישראל. כיום Mobileye נסחרת שוב בנאסד"ק כחברה עצמאית ומדורגת כמובילה גלובלית בתחום הנהיגה האוטונומית.</p>
+      </div>
+      <div class="card-tap" style="color:#0ea5e9">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(14,165,233,0.35)" style="--cc:#0ea5e9">
+    <div class="card-num" style="color:#0ea5e9">08</div>
+    <div class="card-body">
+      <p class="card-text">כל פעם שאתה מוציא את ה-USB מהמחשב — אתה משתמש בהמצאה ישראלית. דב מורן המציא את ה-Flash Drive ב-1999</p>
+      <div class="card-expand">
+        <p class="card-detail">לפני Flash Drive, העברת קבצים הייתה בדיסקטים מסורבלים עם קיבולת של 1.44 מגה. דב מורן, מהנדס ישראלי, המציא ב-1999 את הכונן הנייד הקטן שכולנו מכירים. חברתו M-Systems מכרה מיליוני יחידות לפני שנרכשה. היום מיוצרים מיליארדי Flash Drives בשנה. המצאה ישראלית שהפכה לחפץ האישי השכיח ביותר בעולם אחרי הטלפון.</p>
+      </div>
+      <div class="card-tap" style="color:#0ea5e9">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(14,165,233,0.35)" style="--cc:#0ea5e9">
+    <div class="card-num" style="color:#0ea5e9">09</div>
+    <div class="card-body">
+      <p class="card-text">כשאינטל הייתה בסכנה קיומית ב-2003 — הצוות בחיפה הציל אותה עם ה-Centrino, ואחר כך שוב עם ה-Core 2 Duo</p>
+      <div class="card-expand">
+        <p class="card-detail">בתחילת שנות ה-2000 AMD הדביקה את אינטל והדומיננטיות שלה נראתה בסכנה. הצלת אינטל הגיעה מחיפה: ה-Centrino (2003) הפך את המחשב הנייד ממוצר נישה לפריט צרכני נפוץ. ה-Core 2 Duo (2006) — שוב מחיפה — נחשב לאחד הצ'יפים המוצלחים בהיסטוריה. הצוות הישראלי לא רק פיתח מוצרים — הוא הציל חברה ששווה מאות מיליארדי דולרים.</p>
+      </div>
+      <div class="card-tap" style="color:#0ea5e9">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(14,165,233,0.35)" style="--cc:#0ea5e9">
+    <div class="card-num" style="color:#0ea5e9">10</div>
+    <div class="card-body">
+      <p class="card-text">Waze נוסדה בישראל, נמכרה לגוגל ב-1.15 מיליארד דולר, ומשמשת 140 מיליון נהגים — יותר מכל אפליקציית ניווט אחרת בעולם</p>
+      <div class="card-expand">
+        <p class="card-detail">אורי לוין ושותפיו הישראלים הרסו את ענף הניווט. הרעיון: נהגים משתפים מידע בזמן אמת, ומקבלים מסלול חכם יותר. גוגל שילמה 1.15 מיליארד דולר ב-2013 — אחת מרכישות האפליקציות הגדולות אז. כיום Waze פועלת ב-185 מדינות. נהג בסאו פאולו, ברצלונה או בנירובי שנמנע מפקק — סביר שהוא סומך על אפליקציה ישראלית.</p>
+      </div>
+      <div class="card-tap" style="color:#0ea5e9">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-1">
+  <div class="cat-header" style="border-bottom-color:#10b981">
+    <span class="cat-emoji">🔬</span>
+    <span class="cat-name" style="color:#10b981">מדע ורפואה</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(16,185,129,0.35)" style="--cc:#10b981">
+    <div class="card-num" style="color:#10b981">11</div>
+    <div class="card-body">
+      <p class="card-text">ישראל קטנה מניו-יורק — ועדיין זכתה ביותר פרסי נובל לנפש מגרמניה, מצרפת ומארה"ב</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל מדורגת 11 בעולם בנובל לנפש — וכבר בדירוג זה ישנה עובדה מדהימה: היא מכה מדינות כמו גרמניה, ארה"ב וצרפת, שתקציבי המחקר שלהן גדולים ממנה פי עשרות. הזוכים הישראלים: אהרן צ'כנובר, אבי וופרשטיין, עדה יונת, מיכאל לוויט, אריה וורשל — כולם כימיה. דניאל כהנמן ורוברט אומן — כלכלה. שמעון פרס ויצחק רבין — שלום. 14 פרסים, אוכלוסייה של 9 מיליון.</p>
+      </div>
+      <div class="card-tap" style="color:#10b981">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(16,185,129,0.35)" style="--cc:#10b981">
+    <div class="card-num" style="color:#10b981">12</div>
+    <div class="card-body">
+      <p class="card-text">מאמרים מדעיים ישראלים מצוטטים בתדירות גבוהה ממדינות שמוציאות פי 5 על מחקר — איכות על פני כמות</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל נחשבת לאחת המדינות המפרסמות ביותר ביחס לגודלה, עם ציטוטים גבוהים מהממוצע הגלובלי. המאמרים מתפרסמים ב-Nature, Science ו-Cell — ולא רק מתפרסמים, אלא מקבלים הד. מכון ויצמן ברחובות — עיר קטנה בשרון — מדורג כאחד ממוסדות המחקר הבין-תחומיים הטובים בעולם ומוביל באירופה ובמזרח התיכון במספר פטנטים פעילים לנפש.</p>
+      </div>
+      <div class="card-tap" style="color:#10b981">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(16,185,129,0.35)" style="--cc:#10b981">
+    <div class="card-num" style="color:#10b981">13</div>
+    <div class="card-body">
+      <p class="card-text">בדיקת מעיים שדרשה הרדמה ואישפוז — הפכה לגלולה שבולעים ויוצאים הביתה. המצאה ישראלית: PillCam</p>
+      <div class="card-expand">
+        <p class="card-detail">לפני PillCam, בדיקת המעי הדק הייתה פולשנית, כואבת ולא תמיד אפשרית. Given Imaging הישראלית פיתחה קפסולה בגודל ויטמין שמצלמת 50,000 תמונות ושולחת אותן לרופא. כיום נמכרת ב-80 מדינות ומשמשת לגילוי מוקדם של סרטן ודימומים — בלי ניתוח, בלי כאב. החברה נרכשה ב-860 מיליון דולר. ישראל לא רק ממציאה — היא מציל חיים.</p>
+      </div>
+      <div class="card-tap" style="color:#10b981">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(16,185,129,0.35)" style="--cc:#10b981">
+    <div class="card-num" style="color:#10b981">14</div>
+    <div class="card-body">
+      <p class="card-text">מיליוני חולי טרשת נפוצה ב-60 מדינות חיים חיים שונים בזכות תרופה שנולדה במכון ויצמן הישראלי — קופקסון</p>
+      <div class="card-expand">
+        <p class="card-detail">קופקסון (Copaxone) פותחה על-ידי פרופ' רות' ארנון ומיכאל שלה במכון ויצמן, ובשיאה הכניסה לחברת טבע למעלה מ-4 מיליארד דולר הכנסות שנתיות. אבל מעבר לכסף: מיליוני חולי MS ב-60 מדינות שינו את מסלול מחלתם בזכות מחקר שנולד בישראל. זה לא רק הישג מסחרי — זה פרויקט אנושי שצומח ממדינה קטנה ועמוסת אתגרים.</p>
+      </div>
+      <div class="card-tap" style="color:#10b981">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(16,185,129,0.35)" style="--cc:#10b981">
+    <div class="card-num" style="color:#10b981">15</div>
+    <div class="card-body">
+      <p class="card-text">לטפל בפרקינסון — בלי ניתוח, בלי חתך, בלי הרדמה. InSightec הישראלית עשתה את זה אפשרי</p>
+      <div class="card-expand">
+        <p class="card-detail">InSightec פיתחה טיפול בגלי אולטרסאונד ממוקדים: המטופל שוכב ב-MRI, גלי קול מופנים בדיוק קיצוני לרקמה החולה — והיא נהרסת, בלי שאף כלי נכנס לגוף. הטכנולוגיה מטפלת ברעד של פרקינסון, בגידולים, ובמחלות נוספות. מוכרת ב-30 מדינות ושינתה חיים של עשרות אלפי חולים. לפני ישראל — לא קיים.</p>
+      </div>
+      <div class="card-tap" style="color:#10b981">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(16,185,129,0.35)" style="--cc:#10b981">
+    <div class="card-num" style="color:#10b981">16</div>
+    <div class="card-body">
+      <p class="card-text">פרופ' רות' ארנון: אישה אחת ממכון ויצמן שפיתחה טיפול שמשמש מיליוני חולים בעולם — ומחקריה הניחו בסיס לתרופות שאנחנו לוקחים היום</p>
+      <div class="card-expand">
+        <p class="card-detail">פרופ' רות' ארנון, מהמדעניות הבכירות בתולדות ישראל, עסקה כל חייה בחקר מערכת החיסון. מעבר לקופקסון, מחקריה הניחו תשתית מדעית לתרופות מודרניות רבות לטיפול במחלות אוטואימוניות ובסרטן. זה מה שישראל עושה כשרוצים להבין אותה: מדענית אחת בעיר קטנה, שעובדת עשרות שנים על מחקר בסיסי — ומשנה את חיי מיליוני בני אדם ברחבי העולם.</p>
+      </div>
+      <div class="card-tap" style="color:#10b981">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(16,185,129,0.35)" style="--cc:#10b981">
+    <div class="card-num" style="color:#10b981">17</div>
+    <div class="card-body">
+      <p class="card-text">3.6 רופאים לכל 1,000 ישראלים — יותר מגרמניה, מבריטניה ומהממוצע ב-OECD. בריאות לכולם, לא רק לעשירים</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל מחזיקה בצפיפות רופאים גבוהה מהממוצע ה-OECD, חלקם עולים שהביאו ידע ממדינות מפותחות. בשילוב עם ביטוח בריאות אוניברסלי חובה (100% מהאוכלוסייה מכוסה מ-1995), ישראל מקיימת רפואה ברמה גבוהה לכלל התושבים — לא רק למי שיכול לשלם. שיעורי ההישרדות מסרטן ומחלות לב בישראל הם מהגבוהים בעולם.</p>
+      </div>
+      <div class="card-tap" style="color:#10b981">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(16,185,129,0.35)" style="--cc:#10b981">
+    <div class="card-num" style="color:#10b981">18</div>
+    <div class="card-body">
+      <p class="card-text">Mazor Robotics: רובוט ישראלי שמנחה כירורג בניתוח עמוד שדרה בדיוק של מילימטרים — ונמכר ל-Medtronic ב-1.64 מיליארד דולר</p>
+      <div class="card-expand">
+        <p class="card-detail">Mazor Robotics פיתחה את Renaissance — מערכת שמנחה כירורג לאורך ניתוח עמוד שדרה בדיוק שיד אנושית לא מסוגלת לה. פחות סיכונים, פחות כאב, החלמה מהירה יותר. Medtronic, ענקית הרפואה האמריקאית, שילמה 1.64 מיליארד דולר ב-2018. המסר: כשאמריקאים רוצים את הטוב ביותר ברפואה — הם קונים ישראלי.</p>
+      </div>
+      <div class="card-tap" style="color:#10b981">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(16,185,129,0.35)" style="--cc:#10b981">
+    <div class="card-num" style="color:#10b981">19</div>
+    <div class="card-body">
+      <p class="card-text">Aidoc: AI ישראלי שמזהה שבץ מוחי בסריקת CT מהר יותר מרדיולוג — ומשמש ב-1,000 בתי חולים ב-50 מדינות</p>
+      <div class="card-expand">
+        <p class="card-detail">Aidoc פיתחה בינה מלאכותית שמנתחת סריקות CT ומתריעה לרדיולוג על שבץ, דימום ומחלות ריאה תוך שניות. הטכנולוגיה כבר משמשת ב-1,000 בתי חולים ב-50 מדינות. בעולם שבו כל דקה קריטית בטיפול בשבץ מוחי — AI ישראלי יכול להיות ההבדל בין שיקום מלא לנכות. ישראל לא רק ממציאה AI — היא ממציאה AI שמציל חיים.</p>
+      </div>
+      <div class="card-tap" style="color:#10b981">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-2">
+  <div class="cat-header" style="border-bottom-color:#22c55e">
+    <span class="cat-emoji">🌱</span>
+    <span class="cat-name" style="color:#22c55e">חקלאות, מים וסביבה</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(34,197,94,0.35)" style="--cc:#22c55e">
+    <div class="card-num" style="color:#22c55e">20</div>
+    <div class="card-body">
+      <p class="card-text">ספרד מחזרת 20% ממי השפכים שלה — ישראל מחזרת 90%. ישראל מייצרת מהשפכים שלה יותר מים ממה שספרד בכלל מנסה</p>
+      <div class="card-expand">
+        <p class="card-detail">זהו נתון מאומת על ידי רשות המים הישראלית ועל ידי ה-EPA האמריקאי שביקר בישראל לצורך למידה. ספרד, המדינה השנייה בדירוג, מחזרת כ-20% — ישראל מחזרת פי 4.5. המים המטוהרים משקים שדות בנגב. ה-EPA הקים תוכנית אמריקאית לשימוש חוזר במים בהשראה ישירה מהמודל הישראלי. כשמדינות העולם יתמודדו עם משבר המים — הן יגיעו לישראל ללמוד.</p>
+      </div>
+      <div class="card-tap" style="color:#22c55e">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(34,197,94,0.35)" style="--cc:#22c55e">
+    <div class="card-num" style="color:#22c55e">21</div>
+    <div class="card-body">
+      <p class="card-text">ישראל הפכה את מי הים למי שתייה — כ-60% ממי השתייה הביתיים מגיעים ממתקני התפלה, מהגבוה ביותר בעולם ביחס לאוכלוסייה</p>
+      <div class="card-expand">
+        <p class="card-detail">בתחילת שנות ה-2000 ישראל עמדה בפני משבר מים קיומי — כינרת הייתה בשפל היסטורי. ישראל לא חיכה לגשם — היא בנתה 5 מתקני התפלה ענקיים. כיום כ-60% ממי השתייה הביתיים מגיעים מהים. טכנולוגיות ההתפלה הישראליות, כמו הממברנות של IDE Technologies, נמכרות לאוסטרליה, קליפורניה וסינגפור. ישראל אפילו מייצאת מים לשכנותיה.</p>
+      </div>
+      <div class="card-tap" style="color:#22c55e">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(34,197,94,0.35)" style="--cc:#22c55e">
+    <div class="card-num" style="color:#22c55e">22</div>
+    <div class="card-body">
+      <p class="card-text">פני הרעב של מיליארד בני אדם שונו על ידי המצאה שנולדה בנגב הישראלי — ההשקיה בטפטוף של נטפים</p>
+      <div class="card-expand">
+        <p class="card-detail">שמחה בלאס פיתח ב-1959 בישראל את ההשקיה בטפטוף המודרנית. נטפים, שנוסדה ב-1965 בקיבוץ חצרים בנגב, מחזיקה כיום 30% מהשוק הגלובלי ועובדת עם 8.5 מיליון חקלאים ב-110 מדינות. ההשקיה בטפטוף חוסכת 50-70% מים לעומת שיטות מסורתיות ומגדילה יבולים ב-20-50%. לפי נטפים: הטכנולוגיה עוזרת להאכיל כמעט מיליארד בני אדם. המדבר לא הפסיק את ישראל — הוא השאיר אותה.</p>
+      </div>
+      <div class="card-tap" style="color:#22c55e">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(34,197,94,0.35)" style="--cc:#22c55e">
+    <div class="card-num" style="color:#22c55e">23</div>
+    <div class="card-body">
+      <p class="card-text">150 מדינות, מאפריקה ועד קליפורניה, רוכשות טכנולוגיות מים ישראליות — כי מי שחי עם מדבר, יודע איך לחיות בלי מים</p>
+      <div class="card-expand">
+        <p class="card-detail">ניסיון ישראלי של עשרות שנים בניהול מים בתנאי מדבר הפך לייצוא עולמי. IDE Technologies מוכרת מתקני התפלה. TaKaDu (שנרכשה על ידי חברה בינלאומית) מוכרת מערכות זיהוי נזילות ב-17 מדינות. ה-EPA האמריקאי הקים תוכנית רשמית מבוססת שיטות ישראליות. ישראל הפכה את הבעיה שלה לעסק — ואת העסק לשירות לעולם.</p>
+      </div>
+      <div class="card-tap" style="color:#22c55e">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(34,197,94,0.35)" style="--cc:#22c55e">
+    <div class="card-num" style="color:#22c55e">24</div>
+    <div class="card-body">
+      <p class="card-text">60% ממנה מדבר — ובכל זאת ישראל מספקת לאירופה אבוקדו, פרחים וירקות בהיקפים תעשייתיים</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל מוכיחה שמיקום גיאוגרפי אינו גזר דין. בתי גידול ממוחשבים בבקעת הירדן ובנגב מאפשרים גידול כל השנה. ישראל היא ספקית עיקרית של אבוקדו לאירופה. בשוק הפרחים של אמסטרדם — הגדול בעולם — חלק ניכר מהפרחים מגיע מישראל. האבוקדו שלחלת ת תל אביב אכלה הבוקר — יתכן שגדל בנגב. הפרח שבבית הקפה בפריז — יתכן שצמח בעמק הירדן.</p>
+      </div>
+      <div class="card-tap" style="color:#22c55e">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(34,197,94,0.35)" style="--cc:#22c55e">
+    <div class="card-num" style="color:#22c55e">25</div>
+    <div class="card-body">
+      <p class="card-text">Taranis, Prospera, CropX — חברות ישראליות שמנהלות חוות בקליפורניה, ברזיל ואוסטרליה מרחוק, בדיוק של סנטימטרים</p>
+      <div class="card-expand">
+        <p class="card-detail">חקלאות מדויקת ישראלית מנהלת שדות בכל העולם. CropX מותקנת בחוות ב-50 מדינות וחוסכת 30% מים. Taranis מנתחת תמונות אוויריות ומאתרת מחלות בצמחים לפני שהחקלאי רואה אותן. Prospera (שנרכשה על-ידי Valmont האמריקאית) מפקחת על חממות. חקלאי בטקסס, בברזיל ובאוסטרליה מקבלים המלצות מאלגוריתמים ישראלים — ומגדילים יבולים.</p>
+      </div>
+      <div class="card-tap" style="color:#22c55e">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(34,197,94,0.35)" style="--cc:#22c55e">
+    <div class="card-num" style="color:#22c55e">26</div>
+    <div class="card-body">
+      <p class="card-text">נגב: 60% ממנה מדבר ב-1948 — כיום אחת האזורים החקלאיים הטכנולוגיים ביותר בעולם, שמספקים ירקות לאירופה</p>
+      <div class="card-expand">
+        <p class="card-detail">בתחילת קיום המדינה, הנגב היה שממה שרבים ראו בה נטל. בן גוריון ראה בה עתיד. כיום בתי גידול ממוחשבים בנגב מגדלים עגבניות שרי, פלפלים ופרחים שנשלחים ישירות לאירופה. הנגב הפך לדוגמה עולמית לחקלאות במדבר — מדינות באפריקה ובאסיה מגיעות ללמוד ממנו. מה שנראה כמגבלה גיאוגרפית — הפך להזדמנות טכנולוגית.</p>
+      </div>
+      <div class="card-tap" style="color:#22c55e">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-3">
+  <div class="cat-header" style="border-bottom-color:#ef4444">
+    <span class="cat-emoji">🛡️</span>
+    <span class="cat-name" style="color:#ef4444">ביטחון ותעשייה ביטחונית</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(239,68,68,0.35)" style="--cc:#ef4444">
+    <div class="card-num" style="color:#ef4444">27</div>
+    <div class="card-body">
+      <p class="card-text">כיפת ברזל: מערכת ההגנה היחידה בעולם שהוכיחה מעל 90% יירוט בתנאי לחימה אמיתיים — ארה"ב קנתה אותה עבור הצבא שלה</p>
+      <div class="card-expand">
+        <p class="card-detail">מדינות רבות בנו מערכות יירוט על הנייר. ישראל בנתה מערכת שעובדת. כיפת ברזל, שפותחה על-ידי Rafael ביחד עם חיל האוויר, הוכיחה מעל 90% יירוט בכל עימות מאז 2011. ארה"ב, שמשקיעה מאות מיליארדי דולרים בהגנה, חתמה על עסקאות פיתוח ורכישה עם ישראל. כשהמדינה הגדולה בעולם קונה ממך מערכת הגנה — זו לא מכירה, זו הכרה.</p>
+      </div>
+      <div class="card-tap" style="color:#ef4444">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(239,68,68,0.35)" style="--cc:#ef4444">
+    <div class="card-num" style="color:#ef4444">28</div>
+    <div class="card-body">
+      <p class="card-text">9 מיליון תושבים, 12-13 מיליארד דולר ייצוא ביטחוני בשנה — ישראל מייצאת יותר נשק לנפש מכל מדינה מפותחת אחרת</p>
+      <div class="card-expand">
+        <p class="card-detail">Elbit Systems, Rafael ו-IAI מוכרות מערכות ביטחוניות ל-130 מדינות. הודו, ברזיל, גרמניה ואנגליה — כולן לקוחות. ביחס לגודל האוכלוסייה, ישראל מובילה בייצוא ביטחוני. זה לא רק ביטחון — זה מנוע כלכלי שמייצר עשרות אלפי משרות טכנולוגיות ברמה גבוהה. כל שיפור שצה"ל מפתח לצרכיו — הופך למוצר שהעולם רוצה לקנות.</p>
+      </div>
+      <div class="card-tap" style="color:#ef4444">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(239,68,68,0.35)" style="--cc:#ef4444">
+    <div class="card-num" style="color:#ef4444">29</div>
+    <div class="card-body">
+      <p class="card-text">כטב"מ ישראלי טס בשמי 50 מדינות — Heron ו-Hermes של ישראל הם הסטנדרט העולמי שצבאות מודדים עצמם לפיו</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל הייתה מהראשונות להבין את פוטנציאל הכטב"מים. ה-Heron, ה-Hermes וה-Harop הישראלים משמשים צבאות ב-50 מדינות. היתרון: כשחברה ישראלית מוכרת כטב"מ — היא מוכרת עם ניסיון קרבי אמיתי שאין לאף מדינה אחרת בממדים דומים. זה לא סימולציה — זה ניסיון מהשטח.</p>
+      </div>
+      <div class="card-tap" style="color:#ef4444">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(239,68,68,0.35)" style="--cc:#ef4444">
+    <div class="card-num" style="color:#ef4444">30</div>
+    <div class="card-body">
+      <p class="card-text">לוחמה אלקטרונית ישראלית מגנה על מטוסים ב-130 מדינות — טכנולוגיה שנולדה מצורך קיומי, ונמכרת לעולם שרוצה אותה</p>
+      <div class="card-expand">
+        <p class="card-detail">Elbit, Rafael ו-Elisra פיתחו מערכות הגנה אווירית שמשמשות ממשלות מהודו ועד יוון. שיבוש מכ"מ, הגנה על מטוסים מפני טילים, לוחמה ברשתות תקשורת — תחומים שישראל מובילה בהם. הסיבה: ניסיון קרבי אמיתי שאי אפשר לקנות בשום מקום אחר. ישראל לא רק מגנה על עצמה — היא מייצרת ידע שהעולם קונה.</p>
+      </div>
+      <div class="card-tap" style="color:#ef4444">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(239,68,68,0.35)" style="--cc:#ef4444">
+    <div class="card-num" style="color:#ef4444">31</div>
+    <div class="card-body">
+      <p class="card-text">קצינים אמריקאים ובריטים מגיעים לישראל ללמוד לחימה עירונית — כי לאף צבא אחר אין את הניסיון שיש לצה"ל</p>
+      <div class="card-expand">
+        <p class="card-detail">צה"ל פיתח דוקטרינת לחימה עירונית מהמפותחות בעולם. קצינים מארה"ב, בריטניה, גרמניה וקולומביה מגיעים לאימונים ולמידה. בית הספר ללחימה בשטח בנוי של הצבא האמריקאי הוקם בחלקו על בסיס הידע הישראלי. ישראל הפכה חוויה קשה לידע ייצואני — וצבאות שמעולם לא נלחמו עירוניים, משלמים לישראל כדי ללמוד כיצד.</p>
+      </div>
+      <div class="card-tap" style="color:#ef4444">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(239,68,68,0.35)" style="--cc:#ef4444">
+    <div class="card-num" style="color:#ef4444">32</div>
+    <div class="card-body">
+      <p class="card-text">הודו, ברזיל, ויאטנם ואנגולה — כולן קונות נשק מישראל. מדינה עם 9 מיליון תושבים שמספקת לצבאות של מיליארדי אנשים</p>
+      <div class="card-expand">
+        <p class="card-detail">תעשיית הביטחון הישראלית מוכרת ל-130 מדינות ברחבי העולם. הודו לבדה היא אחת הלקוחות הגדולות ביותר — רכשה מיליארדי דולרים של ציוד ביטחוני. הסיבה: ניסיון קרבי אמיתי שמדינות עם צבאות גדולים בהרבה אין להן. ישראל, שגודלה כמו ניו ג'רזי, מספקת הגנה לצבאות שמונים מאות מיליוני חיילים.</p>
+      </div>
+      <div class="card-tap" style="color:#ef4444">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-4">
+  <div class="cat-header" style="border-bottom-color:#a855f7">
+    <span class="cat-emoji">🎓</span>
+    <span class="cat-name" style="color:#a855f7">חינוך, מחקר ואקדמיה</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(168,85,247,0.35)" style="--cc:#a855f7">
+    <div class="card-num" style="color:#a855f7">33</div>
+    <div class="card-body">
+      <p class="card-text">177 דוקטורנטים לכל 10,000 עובדים — ישראל מכשירה פי שניים מחוקרים לנפש לעומת ממוצע ה-OECD</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל מייצרת יותר דוקטורים, מדענים ומהנדסים ביחס לגודלה מכמעט כל מדינה. הטכניון, האוניברסיטה העברית, תל-אביב, בן-גוריון ומכון ויצמן — מייצרים מחקר ברמה עולמית. דוקטורנטים ישראלים נחשקים בהרווארד, MIT וסטנפורד. רבים חוזרים ומקימים חברות. כשמדינה משקיעה בדוקטורנטים — היא משקיעה בדור הבא של ה-Mobileye, ה-Check Point ו-InSightec.</p>
+      </div>
+      <div class="card-tap" style="color:#a855f7">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(168,85,247,0.35)" style="--cc:#a855f7">
+    <div class="card-num" style="color:#a855f7">34</div>
+    <div class="card-body">
+      <p class="card-text">140 מהנדסים לכל 10,000 עובדים — ישראל מייצרת מהנדסים בקצב שמדינות גדולות ממנה מתקשות להדביק</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל עומדת בצמרת העולמית במספר מהנדסים ביחס לכוח העבודה. שילוב ייחודי: תוכניות הנדסה חזקות באוניברסיטאות, יחידות טכנולוגיות בצבא (8200, Talpiot, יחידה 81) שמוציאות מהנדסים מנוסים, וביקוש עצום ממרכזי הפיתוח הבינלאומיים. כשגוגל פותחת מרכז חדש בתל אביב — היא יודעת שהמהנדסים שתמצא כאן הם מהטובים שיש.</p>
+      </div>
+      <div class="card-tap" style="color:#a855f7">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(168,85,247,0.35)" style="--cc:#a855f7">
+    <div class="card-num" style="color:#a855f7">35</div>
+    <div class="card-body">
+      <p class="card-text">ישראל מוציאה 6.35% מהתמ"ג שלה על מחקר ופיתוח — פי 2.3 מהממוצע העולמי, וראשונה בכל מדינות ה-OECD</p>
+      <div class="card-expand">
+        <p class="card-detail">נתון מאומת לחלוטין על ידי ה-OECD: ישראל השקיעה 6.35% מהתמ"ג ב-R&D ב-2023 — יותר מכל מדינה אחרת. דרום קוריאה שנייה ב-4.96%. ממוצע ה-OECD הוא 2.7%. כ-92% מההשקעה פרטית. ישראל לא חיכה לתוצאות — היא השקיעה בהן, ועשרות שנים של השקעה מייצרות כיום שורה אחר שורה של חברות, פטנטים ופרסי נובל.</p>
+      </div>
+      <div class="card-tap" style="color:#a855f7">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(168,85,247,0.35)" style="--cc:#a855f7">
+    <div class="card-num" style="color:#a855f7">36</div>
+    <div class="card-body">
+      <p class="card-text">הטכניון בחיפה — שממנה יצאו שלושה זוכי נובל — מדורג בעקביות ליד MIT ו-Caltech בין אוניברסיטאות ההנדסה הטובות בעולם</p>
+      <div class="card-expand">
+        <p class="card-detail">הטכניון בחיפה הוא אחת מאוניברסיטאות ההנדסה המובילות בעולם. שלושה מבוגריו זכו בפרס נובל. מיסדי עשרות חברות הי-טק הם בוגריו. אינטל, גוגל ומיקרוסופט מגייסות ממנו עשרות שנים. מכון ויצמן מוביל באירופה ובמזרח התיכון במספר פטנטים פעילים לנפש. מדינה עם 9 מיליון תושבים שמחזיקה שני מוסדות כאלה — זה ניס מדדים.</p>
+      </div>
+      <div class="card-tap" style="color:#a855f7">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(168,85,247,0.35)" style="--cc:#a855f7">
+    <div class="card-num" style="color:#a855f7">37</div>
+    <div class="card-body">
+      <p class="card-text">שיטות לימוד מתמטיקה שפיתחו מחנכים ישראלים — אומצו על-ידי מדינות שמדורגות בין הטובות בעולם בחינוך, כמו סינגפור</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל לא רק מצליחה בחינוך — היא מייצאת אותו. שיטות פדגוגיות ישראליות ללימוד מתמטיקה ומדעים, שמדגישות הבנה עמוקה ופתרון בעיות פתוחות, אומצו במדינות כמו סינגפור ופינלנד — שמדורגות בראש טבלאות ה-PISA. ישראלים מייעצים לרפורמות חינוכיות בעשרות מדינות. כשמדינות רוצות ללמד ילדים לחשוב — הן שואלות ישראלים.</p>
+      </div>
+      <div class="card-tap" style="color:#a855f7">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(168,85,247,0.35)" style="--cc:#a855f7">
+    <div class="card-num" style="color:#a855f7">38</div>
+    <div class="card-body">
+      <p class="card-text">ישראל מדורגת בין המדינות הקוראות ביותר בעולם — עם שוק ספרים פעיל ומיוצא לעשרות שפות</p>
+      <div class="card-expand">
+        <p class="card-detail">שוק הספרים הישראלי שוגשג עם מאות הוצאות לאור וירידי ספרים ענקיים. ספרות ישראלית — מעמוס עוז ועד דוד גרוסמן — מתורגמת לעשרות שפות ונקראת בכל העולם. ספרות ילדים ישראלית זוכה בפרסים בינלאומיים. עם שמייצר ספרות תוך כדי לחימה, תוך כדי קשיים כלכליים, תוך כדי בניית מדינה מאפס — זה עם שמאמין שתרבות ויצירה הם צרכים בסיסיים, לא מותרות.</p>
+      </div>
+      <div class="card-tap" style="color:#a855f7">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-5">
+  <div class="cat-header" style="border-bottom-color:#f97316">
+    <span class="cat-emoji">📈</span>
+    <span class="cat-name" style="color:#f97316">כלכלה ועסקים</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(249,115,22,0.35)" style="--cc:#f97316">
+    <div class="card-num" style="color:#f97316">39</div>
+    <div class="card-body">
+      <p class="card-text">ב-1990 ישראל הייתה כלכלה בינונית. כיום התמ"ג לנפש שלה עלה על ספרד, איטליה וניו-זילנד — ללא נפט, ללא יבשת גדולה</p>
+      <div class="card-expand">
+        <p class="card-detail">ב-1990, ישראל קלטה גל עלייה המוני ונאבקה בקשיים כלכליים חמורים. שלושה עשורים לאחר מכן, הכלכלה גדלה פי חמישה ביחס לאוכלוסייה. ה"נפט" של ישראל הוא האינטלקט האנושי, השקעה בחינוך וטכנולוגיה, וגישה לשווקים גלובליים. ספרד עם קווי חוף מדהימים, משאבי טבע ו-47 מיליון תושבים — מדורגת מתחת לישראל במדדי עושר לנפש.</p>
+      </div>
+      <div class="card-tap" style="color:#f97316">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(249,115,22,0.35)" style="--cc:#f97316">
+    <div class="card-num" style="color:#f97316">40</div>
+    <div class="card-body">
+      <p class="card-text">גוגל, אינטל, מיקרוסופט ואמזון השאירו מיליארדים בישראל — שוב ושוב, שנה אחרי שנה, ביחס לנפש שאין כמוהו בעולם</p>
+      <div class="card-expand">
+        <p class="card-detail">מדי שנה נמכרות עשרות חברות ישראליות בעסקאות ענק. Google קנתה את Waze (1.15B$) ואת Moovit (900M$). Intel קנתה את Mobileye (15.3B$) ואת Habana Labs (2B$). Medtronic קנתה את Mazor (1.64B$). Apple, Microsoft ואמזון מתחרות על הרכישה הבאה. ביחס לגודל האוכלוסייה, אין בעולם מדינה שמייצרת כמות כזו של חברות שמדינות-על רוצות לקנות.</p>
+      </div>
+      <div class="card-tap" style="color:#f97316">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(249,115,22,0.35)" style="--cc:#f97316">
+    <div class="card-num" style="color:#f97316">41</div>
+    <div class="card-body">
+      <p class="card-text">מעל 1,000 חברות AI ישראליות, שגייסו 10 מיליארד דולר מאז 2019 — המרכז הגלובלי הגדול ביותר ב-AI מחוץ לצפון אמריקה</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל מחזיקה במרכז AI מוביל מחוץ לארה"ב. Cognata מדמה סביבות לרכב אוטונומי. Lightricks יוצרת AI לעריכת תמונות ל-500 מיליון משתמשים. Gong מנתחת שיחות מכירה ב-AI. חברות AI ישראליות גייסו מאז 2019 למעלה מ-10 מיליארד דולר. הבסיס: בוגרי 8200 שהכשירו אלגוריתמים בסביבות אמיתיות — לא בסימולציות.</p>
+      </div>
+      <div class="card-tap" style="color:#f97316">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(249,115,22,0.35)" style="--cc:#f97316">
+    <div class="card-num" style="color:#f97316">42</div>
+    <div class="card-body">
+      <p class="card-text">בורסת היהלומים ברמת גן — אחת מארבע הבורסות המרכזיות בעולם, לצד אנטוורפ, מומבאי וניו-יורק</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל לא כורה יהלומים — אבל היא מלטשת אותם לשלמות. הלטישה הישראלית ידועה בדיוקה ובאיכותה. בורסת היהלומים ברמת גן מהווה מרכז מסחרי עולמי, תוך שמייצרת מיליארדי דולרים ואלפי משרות מיוחדות. מדינה שאין לה מוצאי טבע — ויצרה בעצמה ענף יהלומים שמתחרה עם המעצמות הגדולות.</p>
+      </div>
+      <div class="card-tap" style="color:#f97316">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(249,115,22,0.35)" style="--cc:#f97316">
+    <div class="card-num" style="color:#f97316">43</div>
+    <div class="card-body">
+      <p class="card-text">eToro פועלת ב-140 מדינות. Pagaya מנהלת הלוואות ב-AI. Melio מייעלת תשלומים לעסקים אמריקאים — כולן חברות פינטק שנולדו בישראל</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל היא מרכז פינטק גלובלי מוביל. eToro — פלטפורמת המסחר החברתי שנוסדה בתל אביב — פועלת ב-140 מדינות ונסחרת בנאסד"ק. Pagaya משתמשת ב-AI לניהול הלוואות בהיקף מיליארדי דולרים. Melio מייעלת תשלומים עסקיים בארה"ב. ישראל, שמעולם לא הייתה מרכז פיננסי מסורתי, הפכה לכוח פינטק עולמי.</p>
+      </div>
+      <div class="card-tap" style="color:#f97316">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(249,115,22,0.35)" style="--cc:#f97316">
+    <div class="card-num" style="color:#f97316">44</div>
+    <div class="card-body">
+      <p class="card-text">חברת טבע הייתה החברה הגדולה ביותר בעולם לתרופות גנריות — עם הכנסות של 20 מיליארד דולר בשנה, ותרופות שנמכרות בכל רחבי העולם</p>
+      <div class="card-expand">
+        <p class="card-detail">טבע, שנוסדה בירושלים ב-1901, הפכה לחברת התרופות הגדולה ביותר בעולם בגנריות. בשיאה: אחת מכל חמש תרופות גנריות בארה"ב הייתה של טבע. 20 מיליארד דולר הכנסות שנתיות. תרופות גנריות מוזילות עלויות רפואה עבור מיליוני אנשים — ישראל, דרך טבע, הפכה תרופות ממותג לנגישות לכולם.</p>
+      </div>
+      <div class="card-tap" style="color:#f97316">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-6">
+  <div class="cat-header" style="border-bottom-color:#ec4899">
+    <span class="cat-emoji">🎬</span>
+    <span class="cat-name" style="color:#ec4899">תקשורת, מדיה ויצירה</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(236,72,153,0.35)" style="--cc:#ec4899">
+    <div class="card-num" style="color:#ec4899">45</div>
+    <div class="card-body">
+      <p class="card-text">Homeland, In Treatment, Fauda, Tehran — סדרות שנולדו בישראל ומשודרות בעשרות מדינות. ישראל בין 5 המדינות המייצאות ביותר פורמטים טלוויזיוניים בעולם</p>
+      <div class="card-expand">
+        <p class="card-detail">תעשיית הטלוויזיה הישראלית הפכה לספקית תוכן גלובלית. "Homeland" — 8 עונות ופרסי Emmy בארה"ב. "In Treatment" — עובדה ל-23 גרסאות בעולם. "Fauda" ו-"Tehran" על Netflix. חברות ישראליות מוכרות פורמטים ל-60 מדינות. מדינה קטנה, שנמצאת תמיד בזרקור, יצרה אמנות שמספרת לעולם על אנושיות, מורכבות ומתח — ועולם שומע.</p>
+      </div>
+      <div class="card-tap" style="color:#ec4899">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(236,72,153,0.35)" style="--cc:#ec4899">
+    <div class="card-num" style="color:#ec4899">46</div>
+    <div class="card-body">
+      <p class="card-text">Big Brother — הפורמט שנמכר ל-63 מדינות ושינה את הטלוויזיה הגלובלית — פותח עם שותפות ישראלית</p>
+      <div class="card-expand">
+        <p class="card-detail">Big Brother, שפותח עם שותפות Keshet ישראלית, נמכר ל-63 מדינות. Armoza Formats הישראלית מוכרת פורמטים ל-70 מדינות. ריאליטי, דרמה, קומדיה — ישראל מייצאת לכל הז'אנרים. כשצופה בטורקיה, בדרום קוריאה או בארה"ב רואה תוכנית ריאליטי — יש סיכוי לא קטן שהפורמט שלה נולד בישראל.</p>
+      </div>
+      <div class="card-tap" style="color:#ec4899">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(236,72,153,0.35)" style="--cc:#ec4899">
+    <div class="card-num" style="color:#ec4899">47</div>
+    <div class="card-body">
+      <p class="card-text">ICQ: תוכנת המסרים הראשונה בעולם — נוסדה בישראל ב-1996, ופתחה את עידן ה-WhatsApp, Telegram ו-iMessage</p>
+      <div class="card-expand">
+        <p class="card-detail">ב-1996 חברת Mirabilis הישראלית השיקה את ICQ — הפלטפורמה הראשונה למסרים מיידיים. בשיאה: 100 מיליון משתמשים. AOL רכשה ב-407 מיליון דולר ב-1998 — אחת הרכישות הגדולות הראשונות של חברת אינטרנט בעולם. בלי ICQ אין WhatsApp. בלי WhatsApp אין Telegram. ישראל לא רק השתמשה במהפכת האינטרנט — היא עזרה ליצור אותה.</p>
+      </div>
+      <div class="card-tap" style="color:#ec4899">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(236,72,153,0.35)" style="--cc:#ec4899">
+    <div class="card-num" style="color:#ec4899">48</div>
+    <div class="card-body">
+      <p class="card-text">Lightricks, שנוסדה בירושלים על ידי בוגרי האוניברסיטה העברית, מגיעה לכל סמארטפון — 500 מיליון משתמשים ב-Facetune ו-Videoleap</p>
+      <div class="card-expand">
+        <p class="card-detail">Lightricks פיתחה את Facetune ו-Videoleap — אפליקציות לעריכת תמונות שמשמשות 500 מיליון משתמשים בכל העולם. גייסה למעלה מ-335 מיליון דולר ומוערכת ב-1.8 מיליארד דולר. נוסדה על ידי חמישה בוגרי האוניברסיטה העברית בירושלים. ישראל אינה רק ביטחון ורפואה — היא גם כלי שכל אחד בעולם מוריד לטלפון שלו.</p>
+      </div>
+      <div class="card-tap" style="color:#ec4899">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(236,72,153,0.35)" style="--cc:#ec4899">
+    <div class="card-num" style="color:#ec4899">49</div>
+    <div class="card-body">
+      <p class="card-text">In Treatment (בטיפול): סדרה ישראלית שעובדה ב-23 מדינות, כולל ארה"ב, גרמניה, הולנד ורוסיה — שיא עולמי לעיבוד פורמט טלוויזיוני</p>
+      <div class="card-expand">
+        <p class="card-detail">בטיפול — סדרה ישראלית על פסיכותרפיסט ומטופליו — עובדה ב-23 גרסאות לאומיות: ארה"ב (HBO), גרמניה, הולנד, רוסיה, ארגנטינה, הודו ועוד. זה שיא עולמי למספר עיבודים לסדרה אחת. מדוע ישראל? כי יוצרים ישראלים, שחיים עם מורכבות יומיומית, מצליחים ליצור תוכן שנוגע לכולם — ממוסקבה ועד מומבאי.</p>
+      </div>
+      <div class="card-tap" style="color:#ec4899">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-7">
+  <div class="cat-header" style="border-bottom-color:#06b6d4">
+    <span class="cat-emoji">❤️</span>
+    <span class="cat-name" style="color:#06b6d4">בריאות ואורח חיים</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(6,182,212,0.35)" style="--cc:#06b6d4">
+    <div class="card-num" style="color:#06b6d4">50</div>
+    <div class="card-body">
+      <p class="card-text">100% מהישראלים מכוסים בביטוח בריאות חובה מ-1995 — בעוד ארה"ב עדיין מתמודדת עם עשרות מיליוני לא מבוטחים</p>
+      <div class="card-expand">
+        <p class="card-detail">מאז חוק בריאות ממלכתי ב-1995, כל תושב ישראל מכוסה על ידי קופת חולים — ללא קשר להכנסה, מצב בריאותי או גיל. ארבע קופות חולים מתחרות, מה שיוצר יעילות שוק עם כיסוי אוניברסלי. ארה"ב, שמוציאה פי 3 על בריאות מישראל לנפש, עדיין נאבקת עם פערי כיסוי. ישראל פתרה בעיה שמדינות-על עדיין מתקשות לפתור.</p>
+      </div>
+      <div class="card-tap" style="color:#06b6d4">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(6,182,212,0.35)" style="--cc:#06b6d4">
+    <div class="card-num" style="color:#06b6d4">51</div>
+    <div class="card-body">
+      <p class="card-text">ישראלים חיים 82.6 שנה בממוצע — ארה"ב מוציאה פי 3 על רפואה ומשיגה 78. ישראל מייצרת יותר שנות חיים לכל דולר מושקע</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל מדורגת בין 10 המדינות בתוחלת חיים גבוהה, עם הוצאה של כ-3,800 דולר לתושב בשנה על בריאות. ארה"ב מוציאה למעלה מ-12,000 דולר ומשיגה תוחלת חיים של 78 בלבד. הסוד הישראלי: תזונה ים-תיכונית, קהילתיות חזקה, ביטוח אוניברסלי שמאפשר גישה מוקדמת לרפואה, ואורח חיים שמשלב עבודה עם משמעות. יותר חיים, פחות כסף — ישראל שברה את הכלל.</p>
+      </div>
+      <div class="card-tap" style="color:#06b6d4">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(6,182,212,0.35)" style="--cc:#06b6d4">
+    <div class="card-num" style="color:#06b6d4">52</div>
+    <div class="card-body">
+      <p class="card-text">97% מהילדים הישראלים מחוסנים — בין השיעורים הגבוהים בעולם, ומעל ממוצע רוב המדינות המערביות</p>
+      <div class="card-expand">
+        <p class="card-detail">שיעורי החיסון הגבוהים בישראל נובעים ממערכת טיפת חלב נגישה, ביטוח בריאות שכולל חיסונים, ואמון ציבורי ברפואה. ישראל הייתה מהראשונות להחיל חיסונים חדשים — HPV, מנינגיטיס ועוד. כשהגיע הקורונה: ישראל חיסנה 50% מהאוכלוסייה תוך 6 שבועות — מהירות שאף מדינה אחרת לא השיגה, ופרסמה נתונים שעזרו לכל העולם לקבל החלטות.</p>
+      </div>
+      <div class="card-tap" style="color:#06b6d4">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(6,182,212,0.35)" style="--cc:#06b6d4">
+    <div class="card-num" style="color:#06b6d4">53</div>
+    <div class="card-body">
+      <p class="card-text">ינואר 2021: ישראל חיסנה 50% מהאוכלוסייה תוך 6 שבועות — ממהירות שאף מדינה אחרת בעולם לא הגיעה אליה, ופרסמה נתונים ששינו מדיניות עולמית</p>
+      <div class="card-expand">
+        <p class="card-detail">כשחיסוני Pfizer הגיעו, ישראל הפכה למעבדה של העולם. מערכת הבריאות הדיגיטלית, שיתוף פעולה בין קופות החולים, וצבא שסייע בלוגיסטיקה — אפשרו מהירות שלא ראה העולם. נתוני ישראל על יעילות החיסונים ועל תופעות לוואי הורידו את הוודאות וסייעו לממשלות בכל העולם לקבל החלטות. ישראל לא רק הגנה על אזרחיה — היא עזרה לאנושות.</p>
+      </div>
+      <div class="card-tap" style="color:#06b6d4">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(6,182,212,0.35)" style="--cc:#06b6d4">
+    <div class="card-num" style="color:#06b6d4">54</div>
+    <div class="card-body">
+      <p class="card-text">ישראל מדורגת בעקביות בין 10 הכלכלות הבריאות ביותר בעולם לפי Bloomberg Health Index — מעל מדינות כמו בריטניה, גרמניה ואוסטרליה</p>
+      <div class="card-expand">
+        <p class="card-detail">Bloomberg Health Index מדרג ישראל בין 10 הכלכלות הבריאות ביותר בעולם לפי 169 גורמים: תוחלת חיים, גורמי סיכון, סביבה וגישה לרפואה. ישראל דורגת מעל בריטניה, גרמניה ואוסטרליה. הגורמים: תזונה ים-תיכונית, קהילתיות חזקה שמגנה על בריאות נפשית, וגישה מוקדמת לרפואה. אורח חיים ישראלי, עם כל המורכבות שבו, מייצר תוצאות בריאות שמדינות רבות שואפות להגיע אליהן.</p>
+      </div>
+      <div class="card-tap" style="color:#06b6d4">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-8">
+  <div class="cat-header" style="border-bottom-color:#64748b">
+    <span class="cat-emoji">🤝</span>
+    <span class="cat-name" style="color:#64748b">קהילה, חברה ורווחה</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(100,116,139,0.35)" style="--cc:#64748b">
+    <div class="card-num" style="color:#64748b">55</div>
+    <div class="card-body">
+      <p class="card-text">IsraAID: ישראל שולחת צוותי סיוע לאסונות ב-50 מדינות — לעתים מגיעה ראשונה, לפני מדינות גדולות פי עשרות</p>
+      <div class="card-expand">
+        <p class="card-detail">למרות גודלה ואתגריה הביטחוניים, ישראל שולחת סיוע הומניטארי מהמהירים בעולם. IsraAID פועלת ב-50 מדינות ומטפלת בפליטים, ניצולי אסונות וניצולי מלחמות. לאחר רעידת האדמה בהאיטי ובנפאל — ישראל הגיעה עם רופאים, ציוד ומומחים בין הראשונות. מדינה שחיה בקרבת אסון — הפנימה שסיוע מהיר מציל חיים, ומייצאת ידע זה לעולם.</p>
+      </div>
+      <div class="card-tap" style="color:#64748b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(100,116,139,0.35)" style="--cc:#64748b">
+    <div class="card-num" style="color:#64748b">56</div>
+    <div class="card-body">
+      <p class="card-text">הדמוקרטיה היחידה במזרח התיכון: 76 שנה של בחירות חופשיות, עצמאות שיפוטית ועיתונות חופשית — בלב אזור שכל שכנותיה שונות מכך</p>
+      <div class="card-expand">
+        <p class="card-detail">בלב אזור שרובו מורכב ממשטרים אוטוקרטיים, ישראל שומרת על מוסדות דמוקרטיים: כנסת נבחרת, בית משפט עליון שמבטל החלטות ממשלה, עיתונות שמבקרת את השלטון, ומפלגות ערביות שמשמשות בקואליציות ממשל. 76 שנות בחירות חופשיות — ברצף, גם בזמן מלחמות ומשברים. זו לא מציאות מובנת מאליה באזור.</p>
+      </div>
+      <div class="card-tap" style="color:#64748b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(100,116,139,0.35)" style="--cc:#64748b">
+    <div class="card-num" style="color:#64748b">57</div>
+    <div class="card-body">
+      <p class="card-text">World Happiness Report: ישראל בין 10 המאושרות בעולם — למרות מלחמות, מצבי חירום ומורכבות פוליטית שאין כמותה</p>
+      <div class="card-expand">
+        <p class="card-detail">ה-World Happiness Report מדרג ישראל בעקביות בין 10 המדינות המאושרות ביותר בעולם. עובדה שמדהימה כל מי שמכיר את האתגרים: מלחמות, מתחים פוליטיים, יוקר מחיה. הגורמים: קהילתיות חזקה, תחושת משמעות ושייכות, תרבות ה"ביחד" בזמן משבר, ושבת שמאחדת משפחות. ישראל מוכיחה שמאושר אפשר להיות גם בלי שלווה — כשיש משמעות.</p>
+      </div>
+      <div class="card-tap" style="color:#64748b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(100,116,139,0.35)" style="--cc:#64748b">
+    <div class="card-num" style="color:#64748b">58</div>
+    <div class="card-body">
+      <p class="card-text">טיפול ב-PTSD שפותח בישראל מסיבות קיומיות — כיום נלמד ומיושם על ידי צבאות ורופאים ב-30 מדינות</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל, שחיה עם טראומה קולקטיבית דורות, פיתחה פרוטוקולי PTSD מהחדשניים ביותר בעולם. שיטת EMDR, שיושמה בהיקף רחב בישראל, אומצה על ידי צבאות ומדינות ברחבי העולם. מומחים ישראלים לטראומה מוזמנים לייעץ. ניסיון שנצבר בצורך קיומי — הפך לנכס מדעי שמציל נפשות.</p>
+      </div>
+      <div class="card-tap" style="color:#64748b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(100,116,139,0.35)" style="--cc:#64748b">
+    <div class="card-num" style="color:#64748b">59</div>
+    <div class="card-body">
+      <p class="card-text">3.0 ילדים לאישה בישראל — כמעט פי שניים מממוצע ה-OECD (1.5), בעוד אירופה מתמודדת עם התכווצות דמוגרפית</p>
+      <div class="card-expand">
+        <p class="card-detail">שיעור הפריון הגבוה של ישראל — 3.0 ילדים לאישה — הוא הגבוה ביותר בין מדינות ה-OECD. ממוצע ה-OECD עומד על 1.5. גרמניה, ספרד, איטליה ויפן מתמודדות עם התכווצות דמוגרפית חמורה. ישראל צומחת דמוגרפית — שילוב ייחודי של אוכלוסייה חרדית ודתית עם שיעורי פריון גבוהים, ותפיסת משפחה מרכזית גם בחברה החילונית. כשאירופה מתכווצת — ישראל גדלה.</p>
+      </div>
+      <div class="card-tap" style="color:#64748b">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-9">
+  <div class="cat-header" style="border-bottom-color:#84cc16">
+    <span class="cat-emoji">☀️</span>
+    <span class="cat-name" style="color:#84cc16">אנרגיה וסביבה</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(132,204,22,0.35)" style="--cc:#84cc16">
+    <div class="card-num" style="color:#84cc16">60</div>
+    <div class="card-body">
+      <p class="card-text">90% מהבתים הישראלים מחממים מים עם השמש — בעוד פחות מ-1% מהבתים בארה"ב עושים זאת. ישראל פתרה ב-1980 מה שאמריקה עדיין לא פתרה</p>
+      <div class="card-expand">
+        <p class="card-detail">ב-1980 חוקקה ישראל חוק: כל בנייה חדשה תתקין דוד שמש. התוצאה: כ-90% מהבתים מחממים מים בכוח השמש. בארה"ב — פחות מ-1%. ישראל הייתה הראשונה בעולם לחייב דודי שמש בחוק (ספרד עשתה זאת ב-2005, 25 שנה מאוחר). ישראל חוסכת כ-2 מיליון חביות נפט בשנה בזכות הצעד הזה. לפעמים פתרון אנרגיה לא דורש טכנולוגיה חדשה — רק חוק חכם.</p>
+      </div>
+      <div class="card-tap" style="color:#84cc16">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(132,204,22,0.35)" style="--cc:#84cc16">
+    <div class="card-num" style="color:#84cc16">61</div>
+    <div class="card-body">
+      <p class="card-text">ישראל נכנסה למאה ה-21 עם יותר עצים מאשר ב-1900 — אחת המדינות הבודדות בעולם שהלכה נגד הזרם וייערה את עצמה</p>
+      <div class="card-expand">
+        <p class="card-detail">בעוד יערות עולמיים נעלמים בקצב מדאיג, ישראל ייעפה עצמה לאחור. קק"ל נטעה למעלה מ-250 מיליון עצים מאז הקמתה. יערות כמו יער ירושלים ויער בן-שמן פרחו מאדמה חרוכה. הנתון שישראל נכנסה למאה ה-21 עם יותר עצים מ-1900 מאומת על ידי ה-FAO. מדינות רבות, שהיו מיוערות פעם, עדיין לא הצליחו להחזיר את מה שאיבדו.</p>
+      </div>
+      <div class="card-tap" style="color:#84cc16">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(132,204,22,0.35)" style="--cc:#84cc16">
+    <div class="card-num" style="color:#84cc16">62</div>
+    <div class="card-body">
+      <p class="card-text">BrightSource Energy: חברה ישראלית שבנתה את אחת מתחנות הכוח הסולריות הגדולות בעולם — בקליפורניה, לא בישראל</p>
+      <div class="card-expand">
+        <p class="card-detail">BrightSource Energy הישראלית בנתה את תחנת Ivanpah Solar בקליפורניה — אחת מתחנות הכוח הסולריות הגדולות בעולם. אלפי מראות ענקיות ממקדות קרני שמש לקולטן מרכזי שמפעיל טורבינות. הטכנולוגיה פותחה בישראל ויושמה בגדול בחוץ לארץ — כי גם ממשלת קליפורניה מבינה שכשמדובר באנרגיה סולרית בהיקף תעשייתי, ישראל יודעת.</p>
+      </div>
+      <div class="card-tap" style="color:#84cc16">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(132,204,22,0.35)" style="--cc:#84cc16">
+    <div class="card-num" style="color:#84cc16">63</div>
+    <div class="card-body">
+      <p class="card-text">Better Place: ישראלים חשבו על Battery Swap לרכב חשמלי ב-2007 — רעיון שסין אימצה 15 שנה מאוחר יותר והפך לתעשייה של מיליארדים</p>
+      <div class="card-expand">
+        <p class="card-detail">שי אגסי הקים את Better Place ב-2007 עם חזון מהפכני: תחנות החלפת סוללות שמחליפות סוללה תוך 5 דקות. החברה נסגרה ב-2013 בגלל קשיים מבניים — אבל הרעיון חי. NIO הסינית אימצה את Battery Swap ובנתה ממנה תעשייה של מיליארדים. ישראל לפעמים ממציאה לפני שהעולם מוכן — ועולם שמחכה, בסופו של דבר מגיע לאותו מקום.</p>
+      </div>
+      <div class="card-tap" style="color:#84cc16">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(132,204,22,0.35)" style="--cc:#84cc16">
+    <div class="card-num" style="color:#84cc16">64</div>
+    <div class="card-body">
+      <p class="card-text">TaKaDu מוצאת נזילות במים בלונדון, ברצלונה וסידני — טכנולוגיה ישראלית שמנהלת תשתיות מים של ערים גדולות מישראל פי 10</p>
+      <div class="card-expand">
+        <p class="card-detail">TaKaDu הישראלית פיתחה מערכת שמנתחת זרימת מים ברחבי רשת הצנרת ומאתרת נזילות בדיוק קיצוני — עוד לפני שמישהו הרגיש בהן. הטכנולוגיה נמכרת לחברות מים בלונדון, ברצלונה, סידני ועוד. בישראל אחוז האובדן ברשתות המים ירד לפחות מ-10% — אחד הנמוכים בעולם. ערים ענקיות שמנהלות רשתות של מיליוני תושבים — מסתמכות על ידע ישראלי.</p>
+      </div>
+      <div class="card-tap" style="color:#84cc16">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(132,204,22,0.35)" style="--cc:#84cc16">
+    <div class="card-num" style="color:#84cc16">65</div>
+    <div class="card-body">
+      <p class="card-text">ממצאי לוויתן ותמר: ישראל גילתה גז טבעי ב-2009-2010 ועברה מייבואן לייצאן — וכיום מספקת גז לאירופה, למצרים ולירדן</p>
+      <div class="card-expand">
+        <p class="card-detail">גילוי מאגרי הגז לוויתן ותמר ב-2009-2010 שינה את מאזן האנרגיה הישראלי לחלוטין. ממדינה שנסמכה על יבוא אנרגיה, ישראל הפכה לייצאנית גז. מאגר לוויתן הוא אחד ממאגרי הגז הגדולים שנתגלו בעולם בעשור האחרון. ישראל מספקת גז לירדן ולמצרים ומרחיבה ייצוא לאירופה. בן גוריון צדק כשאמר שנגב הנגב — הוא לא ידע שמתחת לים יש אוצרות גדולים עוד יותר.</p>
+      </div>
+      <div class="card-tap" style="color:#84cc16">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-10">
+  <div class="cat-header" style="border-bottom-color:#eab308">
+    <span class="cat-emoji">🏅</span>
+    <span class="cat-name" style="color:#eab308">ספורט, תרבות ואמנות</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(234,179,8,0.35)" style="--cc:#eab308">
+    <div class="card-num" style="color:#eab308">66</div>
+    <div class="card-body">
+      <p class="card-text">ישראל זכתה ב-Eurovision פי 4 — יותר מבריטניה, מגרמניה ומרוב מדינות מערב אירופה, שלמרות גודלן מנצחות פחות</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל זכתה ב-Eurovision ב-1978, 1979, 1998 ו-2018 — יותר מבריטניה, גרמניה, ספרד ואיטליה גם יחד. ניצחון Dana International ב-1998 היה רגע היסטורי — אחת הראשונות שיצגה את הטרנסג'נדר בתחרות בינלאומית וזכתה בזוהר. ניצחון Netta ב-2018 הביא את האירוע לתל אביב. מדינה קטנה, שחיה עם אתגרים קשים, מייצרת אמנות ששובה לבבות ברחבי יבשת שלמה.</p>
+      </div>
+      <div class="card-tap" style="color:#eab308">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(234,179,8,0.35)" style="--cc:#eab308">
+    <div class="card-num" style="color:#eab308">67</div>
+    <div class="card-body">
+      <p class="card-text">ישראל יצרה יותר גרנד-מאסטרים בשחמט לנפש מרוב מדינות אירופה — כשיוצאי ברית המועצות הביאו עמם מסורת שחמט שניצחה ליגות שלמות</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל מדינת שחמט. גל העלייה הגדולה מברית המועצות הביא עמו מרבצים של שחמטאים ברמה עולמית. בוריס גלפנד הגיע לגמר אליפות העולם ב-2012. מאות אלפי ישראלים משחקים, ותוכנית "שחמט בחינוך" מלמדת בבתי ספר. ביחס לאוכלוסייה, ישראל מחזיקה בריכוז גרנד-מאסטרים שמדינות גדולות ממנה לא מגיעות אליו.</p>
+      </div>
+      <div class="card-tap" style="color:#eab308">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(234,179,8,0.35)" style="--cc:#eab308">
+    <div class="card-num" style="color:#eab308">68</div>
+    <div class="card-body">
+      <p class="card-text">ג'ודו אולימפי: טוקיו 2021 — ישראל זכתה ב-2 מדליות זהב. ביחס לאוכלוסייה, ביצוע שמכה מדינות כמו יפן, צרפת ובריטניה</p>
+      <div class="card-expand">
+        <p class="card-detail">בטוקיו 2021 זכו Sagi Muki ו-Tal Flicker במדליות זהב בג'ודו. ב-2016 זכה אורן שמיר. ישראל, עם 9 מיליון תושבים, מביאה ביצועי ג'ודו שמעמידים אותה ליד מדינות עם אוכלוסיות פי 10. יפן, שהמציאה ג'ודו, בדרך כלל מנצחת יותר — אבל לא ביחס לאוכלוסייה. ישראל הפכה ספורט יפני-צרפתי לאחד ההישגים הלאומיים שלה.</p>
+      </div>
+      <div class="card-tap" style="color:#eab308">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(234,179,8,0.35)" style="--cc:#eab308">
+    <div class="card-num" style="color:#eab308">69</div>
+    <div class="card-body">
+      <p class="card-text">ריקוד עם ישראלי מבוצע בחתונות ובאירועים ב-60 מדינות — ישראל יצאה תרבות ריקוד שמחברת יהודים בתפוצות לזהות לאומית</p>
+      <div class="card-expand">
+        <p class="card-detail">הורה הישראלי ומאות כוריאוגרפיות שנוצרו בישראל נרקדות בכל קהילה יהודית בעולם. קורסי ריקוד עם ישראלי קיימים בברזיל, ארגנטינה, ארה"ב ואנגליה. ריקוד עם ישראלי הוא שגריר תרבות שמחבר יהודים בתפוצות לזהות ישראלית — ומושך עניין גם מאנשים שאינם יהודים, שמוקסמים מהשמחה והאנרגיה.</p>
+      </div>
+      <div class="card-tap" style="color:#eab308">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(234,179,8,0.35)" style="--cc:#eab308">
+    <div class="card-num" style="color:#eab308">70</div>
+    <div class="card-body">
+      <p class="card-text">98% מילדי ישראל בגיל גן נמצאים במסגרת חינוך — שיעור שמעל רוב מדינות ה-OECD, ומשקף השקעה לאומית שמחזירה פי 7-12</p>
+      <div class="card-expand">
+        <p class="card-detail">ב-2011 הפכה ישראל ללמידה בגן חינם מגיל שלוש. כיום כ-98% מהילדים בגיל גן נמצאים במסגרת — אחד הגבוהים ב-OECD. מחקרים עולמיים מראים שהשקעה בגיל הרך מחזירה לחברה פי 7-12 — ישראל הפנימה ופעלה. ילד שקיבל גן איכותי הופך להיות מהנדס, מדען, יזם. כשישראל משקיעה בגן — היא משקיעה בסטארטאפ הבא.</p>
+      </div>
+      <div class="card-tap" style="color:#eab308">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="category-section" id="cat-11">
+  <div class="cat-header" style="border-bottom-color:#f59e0b">
+    <span class="cat-emoji">⭐</span>
+    <span class="cat-name" style="color:#f59e0b">הישגים ייחודיים</span>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(245,158,11,0.35)" style="--cc:#f59e0b">
+    <div class="card-num" style="color:#f59e0b">71</div>
+    <div class="card-body">
+      <p class="card-text">ישראל המרכז הגדול ביותר בעולם לבשר תרבותי ולמזון עתידי — Aleph Farms, SuperMeat, Redefine Meat פועלות כאן בעוד המתחרות נמצאות בארה"ב ובאירופה</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל מובילה מהפכת מזון שקטה. Aleph Farms מגדלת סטייק מתאים תאים — לא בעל חיים. SuperMeat מייצרת עוף. Redefine Meat מדפיסה בשר תלת-ממדי. Hinoman מגדלת חלבון ירוק מלמנה. ביחס לגודלה, ישראל היא מרכז הפודטק הגדול ביותר בעולם — עם עשרות חברות שמגייסות מאות מיליוני דולרים. ישראל לא רק מאכילה את עצמה — היא מנסה להאכיל עולם של 10 מיליארד בני אדם.</p>
+      </div>
+      <div class="card-tap" style="color:#f59e0b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(245,158,11,0.35)" style="--cc:#f59e0b">
+    <div class="card-num" style="color:#f59e0b">72</div>
+    <div class="card-body">
+      <p class="card-text">REE Automotive: ישראלים הכניסו מנוע, בלמים והגה לתוך הגלגל עצמו — פתרון שמשנה את ארכיטקטורת הרכב החשמלי ואף אחד לא חשב עליו לפניהם</p>
+      <div class="card-expand">
+        <p class="card-detail">REE Automotive הישראלית שינתה את התפיסה: במקום לבנות מוטורים ובלמים במרכז הרכב, היא הכניסה את כולם לתוך הגלגל. הפתרון מפנה את כל מרחב הרכב לשימוש, ומאפשר בניית מגוון רכבים כבדים מאותה פלטפורמה. REE נסחרת בנאסד"ק ועובדת עם שותפים בינלאומיים. לפעמים חדשנות אמיתית היא לשאול: למה הדבר כאן בכלל?</p>
+      </div>
+      <div class="card-tap" style="color:#f59e0b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(245,158,11,0.35)" style="--cc:#f59e0b">
+    <div class="card-num" style="color:#f59e0b">73</div>
+    <div class="card-body">
+      <p class="card-text">SpaceIL הגיעה לירח ב-2019 בפחות מ-100 מיליון דולר — כשנאס"א הוציאה מיליארדים. ישראל הפכה חלל לנגיש</p>
+      <div class="card-expand">
+        <p class="card-detail">ב-2019 חללית Beresheet של SpaceIL הגיעה למסלול הירח — ישראל המדינה הרביעית להגיע לשם. נאס"א הוציאה עשרות מיליארדים על תוכניות דומות. SpaceIL עשתה זאת בפחות מ-100 מיליון דולר — בעזרת מהנדסים שהחלו כמתנדבים ולמדו אחד מהשני. גם אם הנחיתה לא הסתיימה בהצלחה מלאה — ישראל הוכיחה שחלל הוא לא רק לעצמות.</p>
+      </div>
+      <div class="card-tap" style="color:#f59e0b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(245,158,11,0.35)" style="--cc:#f59e0b">
+    <div class="card-num" style="color:#f59e0b">74</div>
+    <div class="card-body">
+      <p class="card-text">Check Point המציאה את ה-Firewall המסחרי — בלעדיה, הבנקאות הדיגיטלית, הסחר האלקטרוני ורשתות הבריאות לא היו קיימות כפי שאנחנו מכירים</p>
+      <div class="card-expand">
+        <p class="card-detail">ב-1993, גיל שווד ישראלי בן 25 הקים את Check Point ופיתח את ה-Firewall המסחרי הראשון. פיתוח זה הפך לתשתית האבטחה של האינטרנט. בלי Firewall — אין בנקאות מקוונת, אין קניות אונליין, אין רשתות בריאות מאובטחות. כל פעולה שאתה עושה ברשת מוגנת בחלקה על ידי רעיון שנולד בישראל. Check Point שווה כיום למעלה מ-15 מיליארד דולר.</p>
+      </div>
+      <div class="card-tap" style="color:#f59e0b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(245,158,11,0.35)" style="--cc:#f59e0b">
+    <div class="card-num" style="color:#f59e0b">75</div>
+    <div class="card-body">
+      <p class="card-text">ב-1948: 600,000 תושבים, שממה ופליטי שואה. ב-2024: 9 מיליון תושבים, כלכלה מפותחת ואחת ממדינות ה-OECD. שחזור ללא תקדים בהיסטוריה</p>
+      <div class="card-expand">
+        <p class="card-detail">ב-1948 ישראל קמה עם פחות מ-800,000 תושבים, כולל פליטים שיצאו ישירות ממחנות. שלושה דורות לאחר מכן: 9 מיליון תושבים, כלכלה ש-GDP לנפש שלה עלה על ספרד ואיטליה, ומדינה שמחזיקה מדד אושר בין 10 הגבוהים בעולם. שיעור הפריון הגבוה ביותר ב-OECD (3.0 לעומת ממוצע 1.5) מבטיח שהצמיחה תמשיך. זהו אחד מסיפורי השחזור הלאומי המדהימים בהיסטוריה האנושית.</p>
+      </div>
+      <div class="card-tap" style="color:#f59e0b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(245,158,11,0.35)" style="--cc:#f59e0b">
+    <div class="card-num" style="color:#f59e0b">76</div>
+    <div class="card-body">
+      <p class="card-text">מערכות C4I של צה"ל — שמאפשרות לקצין שטח לראות את כל הכוחות בזמן אמת — נלמדות ומיושמות על-ידי צבאות שגדולים מישראל פי 20</p>
+      <div class="card-expand">
+        <p class="card-detail">מערכות ה-C4I הישראליות (פיקוד, שליטה, תקשורת, מחשוב ומודיעין) מאפשרות תיאום קרבי בדיוק שצבאות גדולים שואפים להגיע אליו. ישראל מייצאת פתרונות אלה לדרום-אמריקה, אסיה ואפריקה. כשצבא גדול קונה מערכת C4I מישראל — הוא קונה ניסיון שנצבר בלחימה אמיתית, לא בסימולציות. ניסיון כזה אי אפשר להמציא בלי לחיות אותו.</p>
+      </div>
+      <div class="card-tap" style="color:#f59e0b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(245,158,11,0.35)" style="--cc:#f59e0b">
+    <div class="card-num" style="color:#f59e0b">77</div>
+    <div class="card-body">
+      <p class="card-text">עמוס עוז, דוד גרוסמן, אהרן אפלפלד — סופרים ישראלים שמתורגמים ל-30 שפות ועוד ועוד, וישראל שייכת לליגה של מדינות כמו צרפת, רוסיה ויפן בספרות עולמית</p>
+      <div class="card-expand">
+        <p class="card-detail">ישראל יצרה ספרות עולמית בתוך 76 שנה של קיום. עמוס עוז תורגם ל-40 שפות. דוד גרוסמן זכה בפרס Man Booker International. אהרן אפלפלד כתב את שואה בדרכים שגרמו לתרגומים ל-20 שפות. ספרות ישראלית זוכה בפרסים בינלאומיים בעקביות. מדינה שנולדה מטראומה, מגירוש ומשאיפה — מייצרת אמנות שמספרת על האנושות בצורה שנוגעת ללבבות בכל תרבות.</p>
+      </div>
+      <div class="card-tap" style="color:#f59e0b">קרא עוד ↓</div>
+    </div>
+  </div>
+  <div class="card" onclick="toggleCard(this)" data-open-border="rgba(245,158,11,0.35)" style="--cc:#f59e0b">
+    <div class="card-num" style="color:#f59e0b">78</div>
+    <div class="card-body">
+      <p class="card-text">החומוס שאתה אוכל בניו-יורק, בברלין ובלונדון — כנראה ישראלי. שוק החומוס העולמי: מעל מיליארד דולר בשנה, עם DNA ישראלי משמעותי</p>
+      <div class="card-expand">
+        <p class="card-detail">Sabra, שותפות ישראל-אמריקאית, הפכה לחומוס הנמכר ביותר בארה"ב. חומוס ישראלי נמכר ברשתות סופרמרקטים בארה"ב, אירופה ואוסטרליה. ישראל לקחה מאכל מזרח-תיכוני מסורתי ו"אמריקניזה" אותו — הפכה אותו לחטיף בריאות עולמי. שוק החומוס העולמי: מעל מיליארד דולר בשנה. ישראל לא רק גדלה מהמדבר — היא גם מאכילה ממנו את העולם.</p>
+      </div>
+      <div class="card-tap" style="color:#f59e0b">קרא עוד ↓</div>
+    </div>
+  </div>
+</div>
+
+
+</main>
+
+<footer class="footer">
+  <span class="footer-flag">🇮🇱</span>
+  <strong>מדינת ישראל</strong><br>
+  76 שנה להקמתה — הישגים לדורות
+  <br><br>
+  <button class="share-btn" onclick="sharePage()">
+    <span class="share-icon">↗</span> שתף את הדף
+  </button>
+  <p class="share-hint" id="share-hint"></p>
+</footer>
+
+<style>
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 100px;
+  padding: 12px 28px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f0f0f5;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, transform 0.1s;
+  margin-top: 0.5rem;
+}
+.share-btn:active {
+  background: rgba(255,255,255,0.14);
+  transform: scale(0.97);
+}
+.share-icon { font-size: 1.1rem; }
+.share-hint {
+  font-size: 0.8rem;
+  color: rgba(240,240,245,0.4);
+  margin-top: 0.75rem;
+  min-height: 1.2em;
+  transition: opacity 0.3s;
+}
+</style>
+
+<script>
+function sharePage() {
+  var title = 'ישראל — 78 הישגים לגאווה 🇮🇱';
+  var text = 'מדינה קטנה. הישגים ענקיים. 78 עובדות מדהימות על ישראל:';
+  var url = window.location.href;
+
+  if (navigator.share) {
+    navigator.share({ title: title, text: text, url: url })
+      .catch(function() {});
+  } else {
+    // Fallback: copy URL to clipboard
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function() {
+        showHint('הקישור הועתק ✓ — הדבק אותו בוואטסאפ');
+      }).catch(function() {
+        showHint(url);
+      });
+    } else {
+      // Last resort: show the URL
+      showHint(url);
+    }
+  }
+}
+
+function showHint(msg) {
+  var el = document.getElementById('share-hint');
+  el.textContent = msg;
+  setTimeout(function() { el.textContent = ''; }, 5000);
+}
+
+function toggleCard(el) {
+  var isOpen = el.classList.contains('open');
+  if (!isOpen) {
+    el.style.setProperty('--open-border', el.dataset.openBorder || 'rgba(59,130,246,0.35)');
+  }
+  el.classList.toggle('open', !isOpen);
+}
+
+// Progress bar
+function updateProgress() {
+  var doc = document.documentElement;
+  var scrolled = doc.scrollTop || document.body.scrollTop;
+  var total = doc.scrollHeight - doc.clientHeight;
+  var pct = total > 0 ? (scrolled / total) * 100 : 0;
+  document.getElementById('progress-fill').style.width = pct.toFixed(1) + '%';
+}
+window.addEventListener('scroll', updateProgress, {passive: true});
+
+// Fade-in on scroll
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.04, rootMargin: '0px 0px -20px 0px' });
+
+document.querySelectorAll('.card, .category-section').forEach(function(el) {
+  el.classList.add('fade-in');
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
